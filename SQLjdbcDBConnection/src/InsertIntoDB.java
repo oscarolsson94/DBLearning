@@ -11,7 +11,7 @@ public class InsertIntoDB {
 
 	}
 
-	public void createConnection(String förnamn, String efternamn, String domän) {
+	public void createConnection(String fÃ¶rnamn, String efternamn, String domÃ¤n) {
 
 		Connection con = null;
 		PreparedStatement st = null;
@@ -19,18 +19,18 @@ public class InsertIntoDB {
 		try {
 			String url = "jdbc:mysql://localhost:3306/StudentDB?useLegacyDatetimeCode=false&serverTimezone=UTC";
 			String user = "root";
-			String pw = "!Hedehage8"; // bör hämtas från fil och inte visas direkt i programmet
+			String pw = "!test"; // bÃ¶r hÃ¤mtas frÃ¥n fil och inte visas direkt i programmet
 			String query = "INSERT INTO Student values (?,?,?)";
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, pw);
 			st = con.prepareStatement(query);
 			
-			st.setString(1, förnamn); //index för frågetecken
+			st.setString(1, fÃ¶rnamn); //index fÃ¶r frÃ¥getecken
 			st.setString(2, efternamn);
-			st.setString(3, domän);
+			st.setString(3, domÃ¤n);
 			
-			int count = st.executeUpdate(); //returnerar en int för hur många rader som berörs
+			int count = st.executeUpdate(); //returnerar en int fÃ¶r hur mÃ¥nga rader som berÃ¶rs
 			
 			System.out.println(count + " rows affected");
 
