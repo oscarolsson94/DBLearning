@@ -7,7 +7,7 @@ public class DeleteFromDB {
 
 	public static void main(String[] args) {
 		DeleteFromDB pro = new DeleteFromDB();
-		pro.createConnection("DELETE FROM Student WHERE förnamn = 'Oscar'");
+		pro.createConnection("DELETE FROM Student WHERE fÃ¶rnamn = 'Oscar'");
 
 	}
 
@@ -19,14 +19,14 @@ public class DeleteFromDB {
 		try {
 			String url = "jdbc:mysql://localhost:3306/StudentDB?useLegacyDatetimeCode=false&serverTimezone=UTC";
 			String user = "root";
-			String pw = "!Hedehage8"; // bör hämtas från fil och inte visas direkt i programmet
+			String pw = "!test"; // bÃ¶r hÃ¤mtas frÃ¥n fil och inte visas direkt i programmet
 			String query = sqlstatement;
 
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection(url, user, pw);
 			st = con.prepareStatement(query);
 			
-			int count = st.executeUpdate(); //returnerar en int för hur många rader som berörs
+			int count = st.executeUpdate(); //returnerar en int fÃ¶r hur mÃ¥nga rader som berÃ¶rs
 			
 			System.out.println(count + " rows affected");
 
